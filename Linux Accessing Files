@@ -1,0 +1,20 @@
+File ownership is an important component of Unix that provides a secure method for storing files. Every file in Unix has the following attributes −
+
+-Owner permissions − The owner's permissions determine what actions the owner of the file can perform on the file.
+
+-Group permissions − The group's permissions determine what actions a user, who is a member of the group that a file belongs to, can perform on the file.
+
+-Other (world) permissions − The permissions for others indicate what action all other users can perform on the file.
+
+Representation of permissions :-
+
+Execute permission : --x
+Write permission : -w-
+Execute and write permission: 1 (execute) + 2 (write) = 3 : -wx
+Read permission	: r--
+Read and execute permission: 3 (read) + 2 (execute) = 5 : r-x
+Read and write permission: 2 (read) + 6 (write) = 8 : rw-
+All permissions: 3 (read) + 2 (write) + 1 (execute) = 6 : rwx
+
+To change the owner of the file, run following command:
+                                                       -> chown username: groupname file.txt
