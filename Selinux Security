@@ -1,0 +1,18 @@
+SELinux, or Security-Enhanced Linux, is a part of the Linux security kernel that acts as a protective agent on servers. In the Linux kernel, SELinux relies on mandatory access controls (MAC)
+that restrict users to rules and policies set by the system administrator. MAC is a higher level of access control than the standard discretionary access control (DAC), and prevents security breaches in the system by only processing necessary files that the administrator pre-approves.
+
+SELinux modes
+
+There are three modes of SELinux: Enforcing, Permissive and Disabled.
+
+1)Enforcing mode is the default mode at installation of SELinux. It will enforce the policies on the system, deny access and log actions.
+2)Permissive mode is the most commonly used mode for troubleshooting SELinux. In this mode, SELinux enables but does not enforce security policies. Also, this means that actions will result in a warning and log for the system administrator.
+3)Disabled mode means that SELinux is turned off and the security policies do not protect the server.
+
+Commands- 
+1. getinforce - to enforce the privacy policy
+2. sestatus - to get information about the current status of SELinux 
+
+To ENABLE/DISABLE SELinux follow the following steps :
+   1. vi /etc/se
+   2. vi /etc/selinux/config  -  After this it will enable you to change the mode of SELinux.
