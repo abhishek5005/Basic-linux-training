@@ -1,0 +1,74 @@
+Linux : 
+       Just like Windows, iOS, and Mac OS, Linux is an operating system. In fact, one of the most popular platforms on the planet, Android, is powered by the Linux operating system. An operating system is software that manages all of the hardware resources associated with your desktop or laptop. To put it simply, the operating system manages the communication between your software and your hardware.
+
+Linux is also distributed under an open source license. Open source follows these key tenants:
+
+-The freedom to run the program, for any purpose.
+-The freedom to study how the program works, and change it to make it do what you wish.
+-The freedom to redistribute copies so you can help your neighbor.
+-The freedom to distribute copies of your modified versions to others.
+
+
+Directories and its types:-
+
+     -/bin - In this,it commands & runs applications and programs.
+     -/boot - In this ,boot files present which helps to start device.
+     -/media - In this , external storage will be mounted when plugged in.
+     -/mnt - In this , we maunally mount storage.
+     -/proc - In this, storing the information of CPU & Kernel process is done by virtually.
+     -/root - Home directory of the Administrator .
+     -/usr - unique system resources 
+     -/var - used to store data that changes frequently. 
+     -/dev - device files are stored in this directory.
+     -/etc - In this , system configuration is present.
+     -/home - In this, user's personal directories present.
+     -/lib -  In this,libraries for the commands are provided.
+
+Linux File System :
+                   A Linux file system is a structured collection of files on a disk drive or a partition. A partition is a segment of memory and contains some specific data. In our machine, there can be various partitions of the memory. Generally, every partition contains a file system.
+
+The general-purpose computer system needs to store data systematically so that we can easily access the files in less time. It stores the data on hard disks (HDD) or some equivalent storage type.
+
+
+Basic commands :-
+
+mkdir :	Make a directory at a particular path
+rmdir - used to remove an empty directory  
+touch file : to create file
+~     : Indicates the home directory.
+echo  :It inserts text in the given file
+clear : Clears information on the display screen to provide a blank slate.
+pwd   :	Print your working directory
+ls    :	List the contents of a particular path
+cd    :	 Move to a particular path or change directory
+cd ~  :  Return to home directory.
+cd / :to shift to root user 
+cd / :To shift to root user 
+ls -l :  shows all the links with the link column shows number of links.
+cat   : To display content of the given file
+cp -r : To copy all files recursively.
+mv    :To rename the file 
+rm    :To remove file
+uname :To check current version of Linux.
+head  :To get info about top files instead of all files.
+tail  :To get info about last files instead of all files.
+ping  :To check  working of network
+vi    :Text editor ,press i to insert then press ESC to return & wq to save and exit .
+
+
+Links in Linux :
+                Classified into two types : 1) Hard Links 
+                                            2) Soft Links
+
+Basic commands of links :   
+                            ln - command used to link files
+                            ln -li = it will show the inode number.
+                            df -h => it will give information about the file system with memory usage and mounted directory for the file.
+
+1) Hard Links: 
+              A hard link is duplicate directory entry. Each hard linked file is assigned the same inode (index code: stores the attributes & disk block locations of object's data) value as the original, and threfore they reference to same physical location.
+              Command for creating a hard link:  $ ln file.txt hardlink.txt
+
+2) Soft Links :
+               A soft link is similar to shortcut feature in Windows operating system. Also known as Symbolic link.Each soft linked file contains a seperate inode value that points to the original value. 
+               Command to create a soft link:  $ ln -s file.txt softlink.txt
