@@ -1,0 +1,88 @@
+Intro :
+       The process of dividing a disk into logical areas that can be worked with separately is called partitioning. Disk partitioning is done to subdivide the disk into pieces with broadly different purposes. 
+There are several reasons why you want to use partitioning:
+
+-> multiple operating systems on the same disk.
+-> different file systems on different partitions.
+-> more efficient disk space management.
+-> different security settings on different partitions.
+-> easier backup procedure.
+
+
+=>There are two kinds of major partitions on a Linux system:
+
+1)data partition: normal Linux system data, including the root partition containing all the data to start up and run the system; and
+
+2)swap partition: expansion of the computer's physical memory, extra memory on hard disk.
+
+
+=>Linux generally counts on having twice the amount of physical memory in the form of swap space on the hard disk. When installing a system, you have to know how you are going to do this. An example on a system with 512 MB of RAM:
+
+1st possibility: one swap partition of 1 GB
+2nd possibility: two swap partitions of 512 MB
+3rd possibility: with two hard disks: 1 partition of 512 MB on each disk.
+
+=> The MBR :
+            The information about how a hard disk has been partitioned is stored in its first sector (that is, the first sector of the first track on the first disk surface). The first sector is the master boot record (MBR) of the disk; this is the sector that the BIOS reads in and starts when the machine is first booted.
+The master boot record contains a small program that reads the partition table, checks which partition is active (that is, marked bootable), and reads the first sector of that partition, the partition's boot sector (the MBR is also a boot sector, but it has a special status and therefore a special name). This boot sector contains another small program that reads the
+first part of the operating system stored on that partition (assuming it is bootable), and then starts it.
+The partitioning scheme is not built into the hardware, or even into the BIOS. It is only a convention that many operating systems follow. Not all operating systems do follow it, but they are the exceptions. Some operating systems support partitions, but they occupy one partition on the hard disk, and use their internal partitioning method within that partition. 
+The latter type exists peacefully with other operating systems (including Linux), and does not require any special measures, but an operating system that doesn't support partitions cannot co-exist on the same disk with any other operating system.
+
+=> Extended and logical partitions : 
+                                    The original partitioning scheme for PC hard disks allowed only four partitions. This quickly turned out to be too little in real life, partly because some people want more than four operating systems (Linux, MS-DOS, OS/2, Minix, FreeBSD, NetBSD, or Windows/NT, to name a few), but primarily because sometimes it is a good idea to have several partitions for one operating system. 
+For example, swap space is usually best put in its own partition for Linux instead of in the main Linux partition for reasons of speed.
+This allows partitioning a primary partition into sub-partitions. The primary partition thus subdivided is the extended partition; the sub-partitions are logical partitions. They behave like primary partitions, but are created differently. There is no speed difference between them.
+
+
+Steps to create a partition :
+
+1. List partitions
+2. Label a partition
+3. Use mkpart to make a partition
+4. Let the partition be created/settled
+5. Attach the file system to the partition
+6. Create a mount point directory
+7. Add entry in fstab
+8. Systemctl daemon-reload
+9. Mount the partition on the directory
+10. Reboot
+
+Commands :
+
+- list block with UUID :- Lsblk --fs /dev/vdb
+- list partitions :- parted -l
+- make label to a partition :- parted /dev/vdb mklabel msdos
+- create a partition :- mkpart
+- wait till partition is registered successfully :- udevadm settle
+- format file system with XFS file system :- mkfs.xfs /dev/vdb1
+- restart daemon service :- systemctl daemon-reload
+
+
+=>Process :
+
+1) Parted -l
+
+2) parted / dev /vdb mklabel msdos
+
+3) parted -l 
+
+4)parted /dev /vdb
+
+5) Udevam settle
+
+6)mkfs. xFs /dev/vdbl
+
+7) df-h
+
+8)mkdir / archive
+
+9) lsblk -- fs / dev / vdb
+ 
+10) vi/etc/fstab
+
+11)system etl daemon -reload 
+
+12) mount/archieve
+
+13) df-h
